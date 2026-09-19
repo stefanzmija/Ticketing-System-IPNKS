@@ -5,6 +5,10 @@
     <a routerLink="/my-tickets" class="nav-link cursor-pointer">Мој Тикети</a>
     <a routerLink="/home" class="cursor-pointer"><img src="Logo_FINKI_UKIM_MK.jpg" alt="ФИНКИ" class="h-12 mx-auto"></a>
     <a routerLink="/contact" class="nav-link cursor-pointer">Контакт</a>
-    <a routerLink="/home" class="nav-link cursor-pointer">Одјава</a>
+    @if (auth.isLoggedIn()) {
+      <button (click)="auth.logout()" class="nav-link">Одјава</button>
+    } @else {
+      <a routerLink="/login" class="nav-link">Најава</a>
+    }
   </div>
 </section>
